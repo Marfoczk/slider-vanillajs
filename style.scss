@@ -1,0 +1,157 @@
+@font-face {
+    font-family: "Oranienbaum";
+    src: url("font/Oranienbaum.ttf");
+    }
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oranienbaum', Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+}
+    
+    
+.carlist {
+    position: relative;
+    display: flex;
+    list-style: none;
+    width: 80%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.list-item{
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+
+    img{
+        cursor: pointer;
+        filter: opacity(70%);
+        width: 100%;
+        height: auto;
+
+        &:hover {
+            filter: opacity(85%);
+        }
+
+    }
+
+    h2{
+        visibility: hidden;
+        text-transform: uppercase;
+        font-size: 48px;
+        font-weight: normal;
+    }
+
+    p{
+        visibility: hidden;
+        font-size: 16px;
+    }
+
+    &.center {
+        position: relative;
+        flex: 2;
+        opacity: 100%;
+    
+        h2{
+            visibility: initial;
+        }
+        img{
+            cursor: initial;
+            filter: opacity(100%);
+            opacity: 100%;
+        }
+        p{
+            visibility: initial;
+        }
+    }
+}
+
+/* buttons */
+
+.prevBtn, .nextBtn{
+    cursor: pointer;
+    box-sizing: content-box;
+    background-image: url('img/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 64px;
+    position: absolute;
+    top: 8rem;
+    padding: .5rem;
+    opacity: 50%;
+    transition: all .2s ease-in;
+}
+
+.prevBtn{
+    left: -5%;
+    transform:scaleX(-1);
+
+    &:hover{
+        opacity:100%;
+    }
+}
+.nextBtn{
+    right: -5%;
+
+    &:hover{
+        opacity:100%;
+    }
+}
+
+/* animations classes */
+
+.toLeft{
+    img{
+        animation-name: moveLeft;
+        animation-duration: .2s;
+    }
+}
+
+.toRight{
+    img{
+        animation-name: moveRight;
+        animation-duration: .2s;
+    }
+}
+
+.fade img {
+    animation-name: fade;
+    animation-duration: .6s;
+}
+
+/* animations */
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes moveLeft {
+    0%{
+        transform: translateX(5%);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+
+@keyframes moveRight {
+    0%{
+        transform: translateX(-5%);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
